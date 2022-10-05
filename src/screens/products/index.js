@@ -2,29 +2,40 @@
 import React from "react";
 
 //React Native
-import { View, Text, Button } from "react-native";
-
-//Styles
-import styles from "./styles.js";
+import { FlatList } from "react-native";
 
 //Component
-const Products = ({ navigation }) => {
+import { ProductItem } from "../../components";
+
+//Data
+import { products } from "../../constants/data";
+
+//Styles
+import { styles } from "./styles";
+
+//Component
+const Products = ({ navigation, route }) => {
+  const { categoryId, categoryColor } = route.params;
+
+  const productsFiltered = products.filter(
+    (product) => product.categoryId === categoryId
+  );
+
+  const onSelected = (item) => {
+    navigation.navigate("Product", { name: item.name, productId: item.id });
+  };
+
+  const renderItem = ({ item }) => {
+    return <ProductItem item={item} onSelected={onSelected} categoryColor={categoryColor}/>;
+  };
+  
   return (
-    <View style={styles.container}>
-      <View style={styles.primaryContainer}>
-        <Text style={styles.text}>Product List</Text>
-        <Button
-          title="Volver a categorías"
-          onPress={() => navigation.navigate("Categories")}
-          color="#263f6a"
-        />
-        <View style={styles.secondaryContainer}>
-            <Button title="Alfajor" onPress={() => navigation.navigate("Product")} color="#562e19"/>
-            <Button title="Caramelo" onPress={() => navigation.navigate("Product")} color="#b62b6e"/>
-            <Button title="Gaseosa" onPress={() => navigation.navigate("Product")} color="#ed1c16"/>
-        </View>
-      </View>
-    </View>
+    <FlatList
+      style={styles.containerFlatList}
+      data={productsFiltered}
+      renderItem={renderItem}
+      keyExtractor={(item) => item.id.toString()}
+    />
   );
 };
 

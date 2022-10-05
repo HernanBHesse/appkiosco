@@ -1,10 +1,6 @@
 //React
 import React from "react";
 
-//React Native
-
-//Component
-
 //Navigation
 import AppNavigator from "./src/navigation";
 

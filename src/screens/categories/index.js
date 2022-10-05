@@ -2,23 +2,35 @@
 import React from "react";
 
 //React Native
-import { View, Text, Button } from "react-native";
+import { FlatList } from "react-native";
+
+//Component
+import { CategoryItem } from "../../components/index";
+
+//Constants
+import { categories } from "../../constants/data";
 
 //Styles
-import styles from "./styles.js"
+import { styles } from "./styles";
 
 //Component
 const Categories = ({ navigation }) => {
-    return (
-        <View style={styles.container}>
-            <Text style={styles.text}>Category</Text>
-            <Button 
-            title="Ir a productos"
-            onPress={()=> navigation.navigate("Products")}
-            color="#263f6a"
-            />
-        </View>
-    )
+  const onSelected = (item) => {
+    navigation.navigate("Products", { name: item.title, categoryId: item.id, categoryColor: item.color});
+  };
+
+  const renderItem = ({ item }) => (
+    <CategoryItem item={item} onSelected={onSelected} />
+  );
+
+  return (
+    <FlatList
+      style={styles.containerFlatList}
+      data={categories}
+      renderItem={renderItem}
+      keyExtractor={(item) => item.id.toString()}
+    />
+  );
 };
 
 export default Categories;

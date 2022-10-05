@@ -3,20 +3,23 @@ import React from "react";
 
 //React Native
 import { View, Text, Button } from "react-native";
+import { ProductDetail } from "../../components";
+
+//Data
+import { products } from "../../constants/data";
 
 //Styles
-import styles from "./styles.js";
+import { styles } from "./styles.js";
 
 //Component
-const Product = ({ navigation }) => {
+const Product = ({ navigation, route }) => {
+  const { productId } = route.params;
+
+  let product = products.find((product) => product.id === productId);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Item Details</Text>
-      <Button
-        title="Volver a productos"
-        onPress={() => navigation.navigate("Products")}
-        color="#263f6a"
-      />
+      <ProductDetail item={product} />
     </View>
   );
 };

@@ -3,6 +3,7 @@ import React from "react";
 
 //Navigation
 import { NavigationContainer } from "@react-navigation/native";
+
 //Shop Navigation
 import ShopNavigator from "./shop";
 
