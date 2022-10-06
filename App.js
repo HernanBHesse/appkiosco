@@ -2,7 +2,7 @@
 import React from "react";
 
 //Navigation
-import AppNavigator from "./src/navigation";
+import  AppNavigator  from "./src/navigation/index";
 
 //Fonts
 import { useFonts } from "expo-font";

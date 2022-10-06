@@ -5,12 +5,15 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 
 //Shop Navigation
-import ShopNavigator from "./shop";
+// import ShopNavigator from "./shop";
+
+//Tabs Navigator
+import TabsNavigator from "./tabs"
 
 const AppNavigator = () => {
   return (
     <NavigationContainer>
-      <ShopNavigator />
+      <TabsNavigator />
     </NavigationContainer>
   );
 };

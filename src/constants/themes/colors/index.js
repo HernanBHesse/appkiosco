@@ -6,4 +6,6 @@ export const colors = {
   container: "#E2DCC8",
   secondaryContainer: "#A5C9CA",
   black: "#000000",
+  deleteButton: "#D11D05",
+  confirmButton: "#02AC1E",
 };

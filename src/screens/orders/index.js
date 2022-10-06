@@ -2,17 +2,35 @@
 import React from "react";
 
 //React Native
-import { View, Text } from "react-native";
+import { View, Text, FlatList, TouchableOpacity } from "react-native";
+
+//Data
+import { orders } from "../../constants/data";
+
+//Component
+import { OrderItem } from "../../components/";
 
 //Styles
 import { styles } from "./styles";
 
-const Orders = ({ navigation }) => {
+const Cart = ({ navigation }) => {
+  const onCancel = (id) => {
+    console.warn("Cancelada", id);
+  };
+
+  const renderItem = ({ item }) => (
+    <OrderItem item={item} onCancel={onCancel} />
+  );
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Orders</Text>
+        <FlatList
+          data={orders}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id.toString()}
+        />
     </View>
   );
 };
 
-export default Orders;
+export default Cart;
