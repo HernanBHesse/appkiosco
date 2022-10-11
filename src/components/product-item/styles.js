@@ -6,11 +6,12 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     borderRadius: 10,
-    margin: 20,
-    height: 60,
+    margin: 10,
+    height: 180,
   },
   contentContainer: {
     flex: 1,
+    justifyContent: "center",
     backgroundColor: colors.primary,
     borderRadius: 10,
     shadowColor: colors.black,
@@ -18,23 +19,30 @@ export const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 6,
     elevation: 3,
-    padding: 5,
+    padding: 15,
   },
   title: {
-    fontSize: 14,
+    textAlign: "center",
+    fontSize: 20,
     fontFamily: "LBold",
-    marginBottom: 5,
   },
   detailsContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
+    top: "10%",
   },
   price: {
-    fontSize: 15,
+    fontSize: 18,
     fontFamily: "LRegular",
   },
   weight: {
-    fontSize: 12,
+    fontSize: 16,
     fontFamily: "LRegular",
+  },
+  text: {
+    color: colors.text,
+    textShadowColor: colors.black,
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 40,
   },
 });

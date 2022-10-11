@@ -1,11 +1,14 @@
 import { StyleSheet } from "react-native";
 
+//Constants themes
+import { colors } from "../../constants/themes";
+
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginVertical: 10,
-    marginHorizontal: 20,
-    height: 100,
+    marginHorizontal: 10,
+    height: 160,
   },
   contentContainer: {
     flex: 1,
@@ -22,7 +25,12 @@ export const styles = StyleSheet.create({
     elevation: 10,
   },
   title: {
-    fontFamily: "LRegular",
-    fontSize: 18,
+    fontFamily: "LBold",
+    fontSize: 28,
+    textAlign: "center",
+    color: colors.text,
+    textShadowColor: colors.black,
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 40,
   },
 });
